@@ -2,7 +2,7 @@
 describe('The flighttab test will verivy the flights functionality', () => {
 
 
-   const flights_tab = '[data-cy="Flight"]'
+   const flight_tab = '[data-cy="Flight"]'
    const origin_placeholder = '[placeholder="City or airport"]'
    
     before(() => {
@@ -10,7 +10,7 @@ describe('The flighttab test will verivy the flights functionality', () => {
     })
 
     beforeEach(() => {
-        cy.get(flights_tab).click()
+        cy.get(flight_tab).click()
     })
 
     after(() => {
@@ -25,10 +25,14 @@ describe('The flighttab test will verivy the flights functionality', () => {
 
     it('navigate to the flights tab', () => {
         cy.get(origin_placeholder).should("be.visible")
-        cy.get(flights_tab).invoke('attr', 'aria-expanded').should('eq', 'true')
-        cy.get(flights_tab).invoke('text').should('eq', 'flight')
+        cy.get(flight_tab).invoke('attr', 'aria-expanded').should('eq', 'true')
+        cy.get(flight_tab).invoke('text').should('eq', 'flight')
     })
-
+    
+    it('navigate to the flights tab', () => {
+        cy.get(origin_placeholder).type("Paris")
+        
+    })
 
 
 })
